@@ -3,9 +3,26 @@
 docker-compose up -d
 ```
 # See Swagger Endpoint at http://localhost:8080/swagger-ui/index.html
-
+Compose
 ```yaml
+services:
+  brac-it-application:
+    build:
+      context: .
+      dockerfile: src/main/docker/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      APP_NAME: "BRAC IT APP"
+    volumes:
+      - ./logs:/app/target/logs
+    networks:
+      - cloudNetwork
 
+
+networks:
+  cloudNetwork:
+    driver: bridge
 ```
 
 ```java
