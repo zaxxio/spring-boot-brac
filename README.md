@@ -4,7 +4,37 @@ docker-compose up -d
 ```
 # See Swagger Endpoint at http://localhost:8080/swagger-ui/index.html
 
+```yaml
 
+```
+
+```java
+@Configuration
+@SecurityScheme(
+        scheme = "basic",
+        type = SecuritySchemeType.HTTP
+)
+public class SwaggerConfig {
+
+
+    public static final String HTTP_BASIC = "basic";
+
+    @Bean
+    public OpenAPI openAPI() {
+        return new OpenAPI()
+                .info(new Info()
+                        .description("Brac IT Application" +
+                                "\n ")
+                        .contact(new Contact()
+                                .name("Partha Sutradhar")
+                                .email("partharaj.dev@gmail.com")
+                                .url("https://linkedin.com/in/partha-sutradhar")
+                        ).license(new License().name("MIT"))
+                        .title("Brac IT")
+                        .version("2"));
+    }
+}
+```
 
 # Security Test
 ```java
